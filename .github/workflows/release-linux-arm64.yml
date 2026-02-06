@@ -25,15 +25,24 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Get Version
+        id: get_version
+        run: echo "VERSION=v$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+
       - name: Build and Package Linux
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run build
-          npx electron-builder --linux --arm64 -c.publish.provider=github
+          npx electron-builder --linux --arm64 -p never
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
         with:
-          name: linux-arm64-artifacts
-          path: release/*.{AppImage,deb}
+          tag_name: ${{ github.event_name == 'workflow_dispatch' && env.VERSION || '' }}
+          files: release/*.{AppImage,deb}
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
