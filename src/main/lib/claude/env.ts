@@ -85,7 +85,7 @@ export function getBundledClaudeBinaryPath(): string {
       binaryPath
     )
     console.error(
-      "[claude-binary] Run 'bun run claude:download' to download it"
+      "[claude-binary] Run 'npm run claude:download' to download it"
     )
   } else {
     const stats = fs.statSync(binaryPath)

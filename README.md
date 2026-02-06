@@ -81,11 +81,11 @@ Claude asks clarifying questions, builds structured plans, and shows clean markd
 ### Option 1: Build from source (free)
 
 ```bash
-# Prerequisites: Bun, Python, Xcode Command Line Tools (macOS)
-bun install
-bun run claude:download  # Download Claude binary (required!)
-bun run build
-bun run package:mac  # or package:win, package:linux
+# Prerequisites: Node.js, Python, Xcode Command Line Tools (macOS)
+npm install
+npm run claude:download  # Download Claude binary (required!)
+npm run build
+npm run package:mac  # or package:win, package:linux
 ```
 
 > **Important:** The `claude:download` step downloads the Claude CLI binary which is required for the agent chat to work. If you skip this step, the app will build but agent functionality won't work.
@@ -99,9 +99,9 @@ Your subscription helps us maintain and improve 1Code.
 ## Development
 
 ```bash
-bun install
-bun run claude:download  # First time only
-bun run dev
+npm install
+npm run claude:download  # First time only
+npm run dev
 ```
 
 ## Feedback & Community

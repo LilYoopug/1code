@@ -2,13 +2,13 @@
 
 ## Building from Source
 
-Prerequisites: Bun, Python, Xcode Command Line Tools (macOS)
+Prerequisites: Node.js, Python, Xcode Command Line Tools (macOS)
 
 ```bash
-bun install
-bun run dev      # Development with hot reload
-bun run build    # Production build
-bun run package:mac  # Create distributable
+npm install
+npm run dev      # Development with hot reload
+npm run build    # Production build
+npm run package:mac  # Create distributable
 ```
 
 ## Open Source vs Hosted Version

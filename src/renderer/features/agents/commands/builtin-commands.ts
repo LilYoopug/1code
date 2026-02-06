@@ -34,7 +34,7 @@ Rules:
 Example output for .1code/worktree.json:
 {
   "setup-worktree": [
-    "bun install",
+    "npm install",
     "cp $ROOT_WORKTREE_PATH/.env .env",
     "cp $ROOT_WORKTREE_PATH/.env.local .env.local"
   ]

@@ -331,7 +331,7 @@ export function AgentsWorktreesTab() {
                         onChange={(e) =>
                           updateCommand(i, e.target.value, commands, setCommands)
                         }
-                        placeholder="bun install && cp $ROOT_WORKTREE_PATH/.env .env"
+                        placeholder="npm install && cp $ROOT_WORKTREE_PATH/.env .env"
                         className="flex-1 font-mono text-sm"
                       />
                       {commands.length > 1 && (
@@ -398,7 +398,7 @@ export function AgentsWorktreesTab() {
                                     setUnixCommands,
                                   )
                                 }
-                                placeholder="bun install"
+                                placeholder="npm install"
                                 className="flex-1 font-mono text-sm"
                               />
                               <Button

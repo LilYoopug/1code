@@ -29,18 +29,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Development
-bun run dev              # Start Electron with hot reload
+npm run dev              # Start Electron with hot reload
 
 # Build
-bun run build            # Compile app
-bun run package          # Package for current platform (dir)
-bun run package:mac      # Build macOS (DMG + ZIP)
-bun run package:win      # Build Windows (NSIS + portable)
-bun run package:linux    # Build Linux (AppImage + DEB)
+npm run build            # Compile app
+npm run package          # Package for current platform (dir)
+npm run package:mac      # Build macOS (DMG + ZIP)
+npm run package:win      # Build Windows (NSIS + portable)
+npm run package:linux    # Build Linux (AppImage + DEB)
 
 # Database (Drizzle + SQLite)
-bun run db:generate      # Generate migrations from schema
-bun run db:push          # Push schema directly (dev only)
+npm run db:generate      # Generate migrations from schema
+npm run db:push          # Push schema directly (dev only)
 ```
 
 ## Architecture
@@ -135,7 +135,7 @@ const projectChats = db.select().from(chats).where(eq(chats.projectId, id)).all(
 | State | Jotai, Zustand, React Query |
 | Backend | tRPC, Drizzle ORM, better-sqlite3 |
 | AI | @anthropic-ai/claude-code |
-| Package Manager | bun |
+| Package Manager | npm |
 
 ## File Naming
 
@@ -170,7 +170,7 @@ defaults delete dev.21st.agents      # Production
 
 # 4. Run in dev mode with clean state
 cd apps/desktop
-bun run dev
+npm run dev
 ```
 
 **Common First-Install Bugs:**
@@ -193,12 +193,12 @@ bun run dev
 
 ```bash
 # Full release (build, sign, submit notarization, upload to CDN)
-bun run release
+npm run release
 
 # Or step by step:
-bun run build              # Compile TypeScript
-bun run package:mac        # Build & sign macOS app
-bun run dist:manifest      # Generate latest-mac.yml manifests
+npm run build              # Compile TypeScript
+npm run package:mac        # Build & sign macOS app
+npm run dist:manifest      # Generate latest-mac.yml manifests
 ./scripts/upload-release-wrangler.sh  # Submit notarization & upload to R2 CDN
 ```
 
@@ -257,7 +257,7 @@ When debugging runtime issues in the renderer or main process, use the structure
 
 **Start the server:**
 ```bash
-bun packages/debug/src/server.ts &
+npm run packages/debug/src/server.ts &
 ```
 
 **Instrument renderer code** (no import needed, fails silently):

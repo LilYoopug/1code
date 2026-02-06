@@ -489,7 +489,7 @@ function ProjectDetail({ projectId }: { projectId: string }) {
                   {" "}for main repo.
                 </p>
               </div>
-              {renderCommandList(commands, setCommands, "bun install && cp $ROOT_WORKTREE_PATH/.env .env")}
+              {renderCommandList(commands, setCommands, "npm install && cp $ROOT_WORKTREE_PATH/.env .env")}
             </div>
 
             {/* Platform overrides — macOS/Linux */}
